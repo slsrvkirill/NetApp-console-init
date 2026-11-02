@@ -1,0 +1,15 @@
+.venv/
+venv/
+ENV/
+.aider*
+*.aider*
+.env
+*.env
+*.pem
+*.key
+*.token
+config.yaml
+secrets.yaml
+!config.example.yaml
+.DS_Store
+Thumbs.db
