@@ -1,0 +1,814 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.11.05 10:28:01 =~=~=~=~=~=~=~=~=~=~=~=
+LOADER-A> ### If controller is not in loader program shold wait for "Starting AUTOBOOT press Ctrl-C to abort..."
+LOADER-A> 
+LOADER-A> 
+LOADER-A> 
+LOADER-A> set-defaults
+LOADER-A> saveenv
+LOADER-A> boot_ontap menu
+Loading X86_64/freebsd/image2/kernel:0x200000/1343800 0x349000/10477920 0xd47160/1546252 0x1000000/249936 0x103e000/3862848 0x13ed140/6368960 Entry at 0xffffffff80349000
+Loading X86_64/freebsd/image2/platform.ko:0x1a00000/1642496 0x1b91000/430080 0x1bfa000/0 0x1bfa000/0 0x1bfa000/481808 0x1c6fa10/88 0x1c6fa68/88 0x1c6fac0/2192 0x1c70350/4736 0x1c715d0/104 0x1c71638/200 0x1c71700/88 0x1c71758/88 0x1c717b0/88 0x1c71808/88 0x1c71860/88 0x1c718b8/88 0x1c71910/88 0x1c71968/4816 0x1c72c38/3072 0x1c73838/576 0x1e00000/56832 0x1e0de00/3336 0x1e0eb10/137820 0x1e30570/432 0x1e30720/169 0x1e887c8/1839504 0x2049958/307152 0x2094928/210432 0x20c7f28/9216 0x20ca328/1728 0x20ca9e8/6576 0x20cc398/14448 0x20cfc08/39456 0x20d9628/14208 0x20dcda8/264 0x20dceb0/27384 0x20e39a8/264 0x20e3ab0/264 0x20e3bb8/264 0x20e3cc0/264 0x20e3dc8/264 0x20e3ed0/264 0x20e3fd8/264 0x20e40e0/264 0x20e41e8/600 0x20e4440/312 0x1e307c9/0 0x1e307d0/190704 0x1e88564/610 0x1e5f0c0/169124 
+Starting program at 0xffffffff80349000
+---<<BOOT>>---
+NetApp Data ONTAP 9.14.1P17
+random: registering fast source Intel Secure Key RNG
+IPMI device unit 0 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+IPMI device unit 1 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+Copyright (C) 1992-2026 NetApp.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+netapp_begin started
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+Thu Nov  5 15:27:52 2026 sp_get_oem_nv2f_event:Response (6 bytes) evt 3 timestamp 0x0
+Thu Nov  5 15:27:52 2026 sp_clear_oem_nv2f_event:cleared
+Thu Nov  5 15:27:52 2026 [nv2flash.restage.progress:NOTICE]: ReStage is not needed because the flash has no data.
+No firmware was updated, so no need to reboot
+Pensando Ethernet NIC Driver, ver: 1.4.0-E-78
+ionic_rdma ver 1.4.0-E-78 : Pensando RoCE HCA driver
+Loading irdma module
+ice_rdma_register: iRDMA driver registered using version 1.1.0
+
+
+FWU 1st trigger point
+FWU has no post firmware update action registered.
+Nov 05 18:28:53 Power outage protection flash de-staging: 47 cycles
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+Pensando Offload Driver, ver 1.4.0-E-78
+***OS2SP configured successfully***Nov 05 18:30:59 [test-f2720-1:cf.ic.sbb:notice]: HA interconnect: SBB Compatibility Event. Compatible partner node found. The interconnect device has been enabled.
+RC NIC fw update error is :0 
+NIC FW update from kernel error is :0 
+Nov 05 18:31:10 [test-f2720-1:fal_nvme.partition.status:notice]: Partition 0-1 with capacity 894 GiB status: rewarm.
+Nov 05 18:31:14 [test-f2720-1:disk.init.failureBytes:error]: Failed disk 0a.14.7 detected during disk initialization.
+pnso provider init started.
+Notice : pnso card not detected.
+hwo: Node is using hardware provider : 1.
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+
+This will delete critical system configuration, including cluster membership.
+Warning: do not run this option on a HA node that has been taken over.
+Are you sure you want to continue?: yes
+
+
+Rebooting to finish wipeconfig request.
+Reinitialized partition header on /dev/ada0s3.
+Coredump wipe complete.
+Terminated
+.
+Skipped backing up /var file system to boot device.
+Uptime: 4m3s
+System rebooting...
+BIOS Version: 11.25
+Portions Copyright (C) 2014-2025 NetApp, Inc. All Rights Reserved.
+
+Initializing System Memory ...
+Loading Device Drivers ...
+Configuring Devices ...
+
+CPU = 1 Processor(s) Detected.
+  Intel(R) Xeon(R) CPU D-1557 @ 1.50GHz (CPU 0)
+  CPUID: 0x00050664. Cores per Processor = 12
+32768 MB System RAM Installed.
+SATA (AHCI) Device: SR9MST6240GRT51NP
+
+Boot Loader version 8.6.1 
+Copyright (C) 2000-2003 Broadcom Corporation.
+Portions Copyright (C) 2002-2025 NetApp, Inc. All Rights Reserved.
+
+
+
+Starting AUTOBOOT press Ctrl-C to abort...
+Loading X86_64/freebsd/image2/kernel:0x200000/1343800 0x349000/10477920 0xd47160/1546252 0x1000000/249936 0x103e000/3862848 0x13ed140/6368960 Entry at 0xffffffff80349000
+Loading X86_64/freebsd/image2/platform.ko:0x1a00000/1642496 0x1b91000/430080 0x1bfa000/0 0x1bfa000/0 0x1bfa000/481808 0x1c6fa10/88 0x1c6fa68/88 0x1c6fac0/2192 0x1c70350/4736 0x1c715d0/104 0x1c71638/200 0x1c71700/88 0x1c71758/88 0x1c717b0/88 0x1c71808/88 0x1c71860/88 0x1c718b8/88 0x1c71910/88 0x1c71968/4816 0x1c72c38/3072 0x1c73838/576 0x1e00000/56832 0x1e0de00/3336 0x1e0eb10/137820 0x1e30570/432 0x1e30720/169 0x1e887c8/1839504 0x2049958/307152 0x2094928/210432 0x20c7f28/9216 0x20ca328/1728 0x20ca9e8/6576 0x20cc398/14448 0x20cfc08/39456 0x20d9628/14208 0x20dcda8/264 0x20dceb0/27384 0x20e39a8/264 0x20e3ab0/264 0x20e3bb8/264 0x20e3cc0/264 0x20e3dc8/264 0x20e3ed0/264 0x20e3fd8/264 0x20e40e0/264 0x20e41e8/600 0x20e4440/312 0x1e307c9/0 0x1e307d0/190704 0x1e88564/610 0x1e5f0c0/169124 
+Starting program at 0xffffffff80349000
+---<<BOOT>>---
+NetApp Data ONTAP 9.14.1P17
+random: registering fast source Intel Secure Key RNG
+IPMI device unit 0 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+IPMI device unit 1 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+Copyright (C) 1992-2026 NetApp.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+netapp_begin started
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+Thu Nov  5 15:32:25 2026 sp_get_oem_nv2f_event:Response (6 bytes) evt 3 timestamp 0x0
+Thu Nov  5 15:32:25 2026 sp_clear_oem_nv2f_event:cleared
+Thu Nov  5 15:32:25 2026 [nv2flash.restage.progress:NOTICE]: ReStage is not needed because the flash has no data.
+Wipe filer procedure requested.
+No firmware was updated, so no need to reboot
+Pensando Ethernet NIC Driver, ver: 1.4.0-E-78
+ionic_rdma ver 1.4.0-E-78 : Pensando RoCE HCA driver
+Loading irdma module
+ice_rdma_register: iRDMA driver registered using version 1.1.0
+
+
+FWU 1st trigger point
+FWU has no post firmware update action registered.
+Nov 05 15:33:26 Power outage protection flash de-staging: 47 cycles
+Rebooting...
+.
+varfs_backup_restore: bootarg.abandon_varfs is set! Skipping /var backup.
+Uptime: 1m14s
+System rebooting...
+BIOS Version: 11.25
+Portions Copyright (C) 2014-2025 NetApp, Inc. All Rights Reserved.
+
+Initializing System Memory ...
+Loading Device Drivers ...
+Configuring Devices ...
+
+CPU = 1 Processor(s) Detected.
+  Intel(R) Xeon(R) CPU D-1557 @ 1.50GHz (CPU 0)
+  CPUID: 0x00050664. Cores per Processor = 12
+32768 MB System RAM Installed.
+SATA (AHCI) Device: SR9MST6240GRT51NP
+
+Boot Loader version 8.6.1 
+Copyright (C) 2000-2003 Broadcom Corporation.
+Portions Copyright (C) 2002-2025 NetApp, Inc. All Rights Reserved.
+
+
+
+Starting AUTOBOOT press Ctrl-C to abort...
+Loading X86_64/freebsd/image2/kernel:0x200000/1343800 0x349000/10477920 0xd47160/1546252 0x1000000/249936 0x103e000/3862848 0x13ed140/6368960 Entry at 0xffffffff80349000
+Loading X86_64/freebsd/image2/platform.ko:0x1a00000/1642496 0x1b91000/430080 0x1bfa000/0 0x1bfa000/0 0x1bfa000/481808 0x1c6fa10/88 0x1c6fa68/88 0x1c6fac0/2192 0x1c70350/4736 0x1c715d0/104 0x1c71638/200 0x1c71700/88 0x1c71758/88 0x1c717b0/88 0x1c71808/88 0x1c71860/88 0x1c718b8/88 0x1c71910/88 0x1c71968/4816 0x1c72c38/3072 0x1c73838/576 0x1e00000/56832 0x1e0de00/3336 0x1e0eb10/137820 0x1e30570/432 0x1e30720/169 0x1e887c8/1839504 0x2049958/307152 0x2094928/210432 0x20c7f28/9216 0x20ca328/1728 0x20ca9e8/6576 0x20cc398/14448 0x20cfc08/39456 0x20d9628/14208 0x20dcda8/264 0x20dceb0/27384 0x20e39a8/264 0x20e3ab0/264 0x20e3bb8/264 0x20e3cc0/264 0x20e3dc8/264 0x20e3ed0/264 0x20e3fd8/264 0x20e40e0/264 0x20e41e8/600 0x20e4440/312 0x1e307c9/0 0x1e307d0/190704 0x1e88564/610 0x1e5f0c0/169124 
+Starting program at 0xffffffff80349000
+---<<BOOT>>---
+NetApp Data ONTAP 9.14.1P17
+random: registering fast source Intel Secure Key RNG
+IPMI device unit 0 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+IPMI device unit 1 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+Copyright (C) 1992-2026 NetApp.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+netapp_begin started
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+Thu Nov  5 15:34:08 2026 sp_get_oem_nv2f_event:Response (6 bytes) evt 3 timestamp 0x0
+Thu Nov  5 15:34:08 2026 sp_clear_oem_nv2f_event:cleared
+Thu Nov  5 15:34:08 2026 [nv2flash.restage.progress:NOTICE]: ReStage is not needed because the flash has no data.
+No firmware was updated, so no need to reboot
+Pensando Ethernet NIC Driver, ver: 1.4.0-E-78
+ionic_rdma ver 1.4.0-E-78 : Pensando RoCE HCA driver
+Loading irdma module
+ice_rdma_register: iRDMA driver registered using version 1.1.0
+
+
+FWU 1st trigger point
+FWU has no post firmware update action registered.
+Nov 05 15:35:08 Power outage protection flash de-staging: 47 cycles
+
+The boot device has changed. System configuration information
+could be lost. Use option (6) to restore the system configuration, or
+option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 9a
+Pensando Offload Driver, ver 1.4.0-E-78
+***OS2SP configured successfully***Nov 05 15:36:39 [localhost:cf.ic.sbb:notice]: HA interconnect: SBB Compatibility Event. Compatible partner node found. The interconnect device has been enabled.
+RC NIC fw update error is :0 
+NIC FW update from kernel error is :0 
+Nov 05 15:36:52 [localhost:fal_nvme.partition.status:notice]: Partition 0-1 with capacity 894 GiB status: rewarm.
+Nov 05 15:36:55 [localhost:rdmalib.multichan.count:notice]: Multichan count "(1)" in use on HA partner is notified via path "event processing".
+Nov 05 15:36:56 [localhost:disk.init.failureBytes:error]: Failed disk 0a.14.7 detected during disk initialization.
+pnso provider init started.
+Notice : pnso card not detected.
+hwo: Node is using hardware provider : 1.
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+9a
+
+
+	########## WARNING: AGGREGATES WILL BE DESTROYED ##########
+
+This is a disruptive operation that applies to all the disks
+that are attached and visible to this node.
+
+Before proceeding further, make sure that:
+1) The aggregates visible from this node do not contain
+   data that needs to be preserved.
+2) This option (9a) has been executed or will be executed
+   on the HA partner node (and DR/DR-AUX partner nodes if
+   applicable), prior to reinitializing any system in the
+   HA-pair or MetroCluster configuration.
+3) The HA partner node (and DR/DR-AUX partner nodes if
+   applicable) is currently waiting at the boot menu.
+
+Do you want to abort this operation (yes/no)? no
+no
+
+Reassigning locally attached disks to local node...
+
+Changing ownership of locally attached disk 0b.24.6 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0b.24.0 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.14.6 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.14.4 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.10.6 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.14.8 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.10.2 from 538261508 to local site 538261505
+Changing ownership of locally attached disk 0a.14.0 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.6 (S/N ZC14SW0V) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0a.10.10 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.0 (S/N 1EJ99A0G) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.24.8 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.14.6 (S/N S4D1AE0M) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.24.4 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.14.4 (S/N 1EJDT54F) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.24.10 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.6 (S/N Z4D4P5RS) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0a.14.2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.14.8 (S/N Z4D4P6AS) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0a.10.0 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.2 (S/N Z4D4PF8H) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0a.10.4 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.14.0 (S/N 1EJ973GG) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.24.2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.10 (S/N Z4D23EQ8) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0a.10.8 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.8 (S/N 1EJEH0SF) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.6 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.4 (S/N 1EJ5U7TF) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.6P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.10 (S/N ZC14SBY6) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.6P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.14.2 (S/N S4D0MK24) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.8 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.0 (S/N K1HBMDYD) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.8P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.4 (S/N K1K6422D) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.8P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.24.2 (S/N 99G0A1HWF9XC) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.0 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0a.10.8 (S/N NCGMVM7S) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.0P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.6 (S/N K1HEDEKD) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.0P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.6P1 (S/N K1HEDEKDNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.6P2 (S/N K1HEDEKDNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.2P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.8 (S/N NCGMV4KS) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.2P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.8P1 (S/N NCGMV4KSNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.10 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.8P2 (S/N NCGMV4KSNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.10P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.0 (S/N K1HB8YRD) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.10P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.0P1 (S/N K1HB8YRDNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.4 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.0P2 (S/N K1HB8YRDNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.4P1 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.2 (S/N K1HHL0XD) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changing ownership of locally attached disk 0b.00.4P2 from 538261508 to local site 538261505
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.2P1 (S/N K1HHL0XDNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Changed ownership of 35 out of 35 disks, status: Succeeded
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.2P2 (S/N K1HHL0XDNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Cannot send remote rescan message at this stage of the boot. Use 'run local disk show' on the partner for it to scan the newly assigned disks
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.10 (S/N K1HE7VRD) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.10P1 (S/N K1HE7VRDNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.10P2 (S/N K1HE7VRDNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.4 (S/N NCGXUJ9S) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.4P1 (S/N NCGXUJ9SNP001) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+Nov 05 15:37:38 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.4P2 (S/N NCGXUJ9SNP002) is being changed from node "test-f2720-2" (ID: 538261508, home ID: 538261508, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 0, DR home ID: 4294967295).
+
+Destroying existing aggregates.. 
+Nov 05 15:37:48 [localhost:diskown.duplicateSoftEntries:notice]: Found duplicate filer_table entries with same sysid 538261508 but different names ( test-f2720-2,  )
+
+Unpartitioning disks...
+
+No disk found to be eligible for unpartitioning.
+
+
+Removing disk ownership...
+Nov 05 15:38:05 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.9 (S/N 1EJEH9AF)
+Nov 05 15:38:05 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.9 (S/N 1EJEH9AF) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.7 (S/N K1HEWV9D)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.7 (S/N K1HEWV9D) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.8 (S/N NCGMV4KS)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.8 (S/N NCGMV4KS) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.10 (S/N K1HE7VRD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.10 (S/N K1HE7VRD) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.6 (S/N K1HEDEKD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.6 (S/N K1HEDEKD) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.1 (S/N K1HBM6RD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.1 (S/N K1HBM6RD) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.3 (S/N K1K6438D)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.3 (S/N K1K6438D) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.4 (S/N NCGXUJ9S)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.4 (S/N NCGXUJ9S) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.0 (S/N K1HB8YRD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.0 (S/N K1HB8YRD) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.5 (S/N K1K37LUD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.5 (S/N K1K37LUD) while reading individual disk ownership area
+disk remove_ownership: No disks belonging to this host were found.
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.2 (S/N K1HHL0XD)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.2 (S/N K1HHL0XD) while reading individual disk ownership area
+Nov 05 15:38:06 [localhost:diskown.errorReadingOwnership:notice]: error 16 (disk does not exist) while reading ownership on disk 0b.00.11 (S/N K1HD6J0D)
+Nov 05 15:38:06 [localhost:diskown.errorDuringIO:error]: error 16 (disk does not exist) on disk 0b.00.11 (S/N K1HD6J0D) while reading individual disk ownership area
+
+Disk ownership successfully removed.
+bootarg.bootmenu.selection is ||
+
+
+
+The boot device has changed. System configuration information
+could be lost. Use option (6) to restore the system configuration, or
+option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration, assign ownership and initialize disks for root volume.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 9b
+9b
+Option (9a) MUST BE COMPLETED on BOTH nodes in an HA pair (and DR/DR-AUX partner nodes if applicable)
+prior to starting option (9b).
+
+Has option (9a) been completed on all the nodes (yes/no)? yes
+yes
+
+
+########## WARNING ##########
+
+All configuration data will be deleted and the node will be
+initialized with partitioned disks. Existing disk partitions must
+be removed from all disks (9a) attached to this node and
+its HA partner (and DR/DR-AUX partner nodes if applicable).
+The HA partner (and DR/DR-AUX partner nodes if applicable) must
+be waiting at the boot menu or already initialized with partitioned
+disks (9b).
+Do you still want to continue (yes/no)? yes
+yes
+bootarg.bootmenu.selection is |wipeconfig|
+AdpInit: This system will now reboot to perform wipeclean.
+Reinitialized partition header on /dev/ada0s3.
+Coredump wipe complete.
+Terminated
+.
+Skipped backing up /var file system to boot device.
+Uptime: 5m56s
+System rebooting...
+BIOS Version: 11.25
+Portions Copyright (C) 2014-2025 NetApp, Inc. All Rights Reserved.
+
+Initializing System Memory ...
+Loading Device Drivers ...
+Configuring Devices ...
+
+CPU = 1 Processor(s) Detected.
+  Intel(R) Xeon(R) CPU D-1557 @ 1.50GHz (CPU 0)
+  CPUID: 0x00050664. Cores per Processor = 12
+32768 MB System RAM Installed.
+SATA (AHCI) Device: SR9MST6240GRT51NP
+
+Boot Loader version 8.6.1 
+Copyright (C) 2000-2003 Broadcom Corporation.
+Portions Copyright (C) 2002-2025 NetApp, Inc. All Rights Reserved.
+
+
+
+Starting AUTOBOOT press Ctrl-C to abort...
+Loading X86_64/freebsd/image2/kernel:0x200000/1343800 0x349000/10477920 0xd47160/1546252 0x1000000/249936 0x103e000/3862848 0x13ed140/6368960 Entry at 0xffffffff80349000
+Loading X86_64/freebsd/image2/platform.ko:0x1a00000/1642496 0x1b91000/430080 0x1bfa000/0 0x1bfa000/0 0x1bfa000/481808 0x1c6fa10/88 0x1c6fa68/88 0x1c6fac0/2192 0x1c70350/4736 0x1c715d0/104 0x1c71638/200 0x1c71700/88 0x1c71758/88 0x1c717b0/88 0x1c71808/88 0x1c71860/88 0x1c718b8/88 0x1c71910/88 0x1c71968/4816 0x1c72c38/3072 0x1c73838/576 0x1e00000/56832 0x1e0de00/3336 0x1e0eb10/137820 0x1e30570/432 0x1e30720/169 0x1e887c8/1839504 0x2049958/307152 0x2094928/210432 0x20c7f28/9216 0x20ca328/1728 0x20ca9e8/6576 0x20cc398/14448 0x20cfc08/39456 0x20d9628/14208 0x20dcda8/264 0x20dceb0/27384 0x20e39a8/264 0x20e3ab0/264 0x20e3bb8/264 0x20e3cc0/264 0x20e3dc8/264 0x20e3ed0/264 0x20e3fd8/264 0x20e40e0/264 0x20e41e8/600 0x20e4440/312 0x1e307c9/0 0x1e307d0/190704 0x1e88564/610 0x1e5f0c0/169124 
+Starting program at 0xffffffff80349000
+---<<BOOT>>---
+NetApp Data ONTAP 9.14.1P17
+random: registering fast source Intel Secure Key RNG
+IPMI device unit 0 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+IPMI device unit 1 rev. 1, firmware rev. 11.13, version 2.0, device support mask 0xbf
+Copyright (C) 1992-2026 NetApp.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+netapp_begin started
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+Thu Nov  5 15:40:34 2026 sp_get_oem_nv2f_event:Response (6 bytes) evt 3 timestamp 0x0
+Thu Nov  5 15:40:34 2026 sp_clear_oem_nv2f_event:cleared
+Thu Nov  5 15:40:34 2026 [nv2flash.restage.progress:NOTICE]: ReStage is not needed because the flash has no data.
+Wipe filer procedure requested.
+No firmware was updated, so no need to reboot
+Pensando Ethernet NIC Driver, ver: 1.4.0-E-78
+ionic_rdma ver 1.4.0-E-78 : Pensando RoCE HCA driver
+Loading irdma module
+ice_rdma_register: iRDMA driver registered using version 1.1.0
+
+
+FWU 1st trigger point
+FWU has no post firmware update action registered.
+Nov 05 15:41:35 Power outage protection flash de-staging: 47 cycles
+Pensando Offload Driver, ver 1.4.0-E-78
+***OS2SP configured successfully***Nov 05 15:41:50 [localhost:cf.ic.sbb:notice]: HA interconnect: SBB Compatibility Event. Compatible partner node found. The interconnect device has been enabled.
+RC NIC fw update error is :0 
+NIC FW update from kernel error is :0 
+Nov 05 15:42:04 [localhost:fal_nvme.partition.status:notice]: Partition 0-1 with capacity 894 GiB status: rewarm.
+Nov 05 15:42:06 [localhost:rdmalib.multichan.count:notice]: Multichan count "(1)" in use on HA partner is notified via path "event processing".
+Nov 05 15:42:07 [localhost:disk.init.failureBytes:error]: Failed disk 0a.14.7 detected during disk initialization.
+pnso provider init started.
+Notice : pnso card not detected.
+hwo: Node is using hardware provider : 1.
+cryptomod_fips: Executing Crypto FIPS Self Tests.
+cryptomod_fips: Crypto FIPS self-test: 'CPU COMPATIBILITY' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 ECB, AES-256 ECB' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CBC, AES-256 CBC' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 GCM, AES-256 GCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'AES-128 CCM' passed.
+cryptomod_fips: Crypto FIPS self-test: 'CTR_DRBG' passed.
+cryptomod_fips: Crypto FIPS self-test: 'KDF' passed.
+cryptomod_fips: Crypto FIPS self-test: 'SHA1, SHA256, SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'HMAC-SHA1, HMAC-SHA256, HMAC-SHA512' passed.
+cryptomod_fips: Crypto FIPS self-test: 'PBKDF2' passed.
+cryptomod_fips: Crypto FIPS self-test: 'Self-integrity' passed.
+9b
+AdpInit: Root will be created with 6 disks with configuration as (3d+2p+1s) using disks of class (RLS_CLASS_NONE) type (FSAS).
+bootarg.bootmenu.selection is |4a|
+AdpInit: System will now perform initialization using option 4a
+BOOTMGR: The system has 0 disks assigned whereas it needs 6 to boot, will try to assign the required number.
+Sanown: Considering disks only from internal shelf
+sanown_assign_X_disks: assign disks from my unowned local site pool0 loop 
+Nov 05 15:42:16 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.9 (S/N 1EJEH9AF) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.9
+Cannot send remote rescan message at this stage of the boot. Use 'run local disk show' on the partner for it to scan the newly assigned disks
+Nov 05 15:42:16 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.5 (S/N K1K37LUD) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.5
+Nov 05 15:42:16 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.1 (S/N K1HBM6RD) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.1
+Nov 05 15:42:16 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.7 (S/N K1HEWV9D) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.7
+Nov 05 15:42:17 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.11 (S/N K1HD6J0D) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.11
+Nov 05 15:42:17 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.3 (S/N K1K6438D) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+sanown_assign_disk_helper: Assigned disk 0b.00.3
+BOOTMGR: already_assigned=0, min_to_boot=6, num_assigned=6
+Nov 05 15:42:17 [localhost:cf.disk.skipped:notice]: The disk 0a.14.7 was skipped because it reported the status disk failed.
+
+
+.Nov 05 15:42:24 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.7 Shelf 0 Bay 7 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HEWV9D] UID [5000CCA2:5551A378:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e066c2d3ab).
+Nov 05 15:42:24 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.3 Shelf 0 Bay 3 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K6438D] UID [5000CCA2:55B44098:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e02b4c597a).
+Nov 05 15:42:24 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.5 Shelf 0 Bay 5 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K37LUD] UID [5000CCA2:55AF00B8:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e04b48655b).
+Nov 05 15:42:24 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.11 Shelf 0 Bay 11 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HD6J0D] UID [5000CCA2:554E91AC:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e070e09778).
+Nov 05 15:42:25 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.1 Shelf 0 Bay 1 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HBM6RD] UID [5000CCA2:554D7EE4:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e142c8b731).
+Nov 05 15:42:25 [localhost:raid.disk.fast.zero.done:notice]: Disk 0b.00.9 Shelf 0 Bay 9 [NETAPP   X316_HARIH06TA07 NA00] S/N [1EJEH9AF] UID [5000CCA2:32894514:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000] : disk zeroing complete (0x6aeca3e15d3c9d8b).
+Nov 05 15:42:25 [localhost:cf.disk.skipped:notice]: The disk 0a.14.7 was skipped because it reported the status disk failed.
+Nov 05 15:42:26 [localhost:raid.autoPart.start:notice]: System has started auto-partitioning 6 disks.
+Nov 05 15:42:28 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.1 Shelf 0 Bay 1 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HBM6RD] UID [5000CCA2:554D7EE4:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+.Nov 05 15:42:32 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.3 Shelf 0 Bay 3 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K6438D] UID [5000CCA2:55B44098:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+.Nov 05 15:42:36 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.5 Shelf 0 Bay 5 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K37LUD] UID [5000CCA2:55AF00B8:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+Nov 05 15:42:40 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.7 Shelf 0 Bay 7 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HEWV9D] UID [5000CCA2:5551A378:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+.Nov 05 15:42:44 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.9 Shelf 0 Bay 9 [NETAPP   X316_HARIH06TA07 NA00] S/N [1EJEH9AF] UID [5000CCA2:32894514:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+Nov 05 15:42:47 [localhost:raid.partition.disk:notice]: Disk partition successful on Disk 0b.00.11 Shelf 0 Bay 11 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HD6J0D] UID [5000CCA2:554E91AC:00000000:00000000:00000000:00000000:00000000:00000000:00000000:00000000], partitions created 2, partition sizes specified 1, partition spec summary [2]=16347605.
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.1P2 (S/N K1HBM6RDNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.1P1 (S/N K1HBM6RDNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.3P2 (S/N K1K6438DNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.3P1 (S/N K1K6438DNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.5P2 (S/N K1K37LUDNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.5P1 (S/N K1K37LUDNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.7P2 (S/N K1HEWV9DNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.7P1 (S/N K1HEWV9DNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.9P2 (S/N 1EJEH9AFNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.9P1 (S/N 1EJEH9AFNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.11P2 (S/N K1HD6J0DNP002) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:diskown.changingOwner:notice]: The ownership of disk 0b.00.11P1 (S/N K1HD6J0DNP001) is being changed from node "unowned" (ID: 4294967295, home ID: 4294967295, DR home ID: 4294967295) to node "" (ID: 538261505, home ID: 538261505, DR home ID: 4294967295).
+Nov 05 15:42:50 [localhost:raid.autoPart.done:notice]: Successfully auto-partitioned 6 of 6 disks.
+Nov 05 15:42:52 [localhost:raid.vol.disk.add.done:notice]: Addition of Disk /aggr0/plex0/rg0/0b.00.9P2 Shelf 0 Bay 9 [NETAPP   X316_HARIH06TA07 NA00] S/N [1EJEH9AFNP002] UID [6000CCA2:32894514:500A0981:00000002:00000000:00000000:00000000:00000000:00000000:00000000] to aggregate aggr0 has completed successfully
+Nov 05 15:42:52 [localhost:raid.vol.disk.add.done:notice]: Addition of Disk /aggr0/plex0/rg0/0b.00.7P2 Shelf 0 Bay 7 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HEWV9DNP002] UID [6000CCA2:5551A378:500A0981:00000002:00000000:00000000:00000000:00000000:00000000:00000000] to aggregate aggr0 has completed successfully
+Nov 05 15:42:52 [localhost:raid.vol.disk.add.done:notice]: Addition of Disk /aggr0/plex0/rg0/0b.00.5P2 Shelf 0 Bay 5 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K37LUDNP002] UID [6000CCA2:55AF00B8:500A0981:00000002:00000000:00000000:00000000:00000000:00000000:00000000] to aggregate aggr0 has completed successfully
+Nov 05 15:42:52 [localhost:raid.vol.disk.add.done:notice]: Addition of Disk /aggr0/plex0/rg0/0b.00.3P2 Shelf 0 Bay 3 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1K6438DNP002] UID [6000CCA2:55B44098:500A0981:00000002:00000000:00000000:00000000:00000000:00000000:00000000] to aggregate aggr0 has completed successfully
+Nov 05 15:42:52 [localhost:raid.vol.disk.add.done:notice]: Addition of Disk /aggr0/plex0/rg0/0b.00.1P2 Shelf 0 Bay 1 [NETAPP   X316_HAKPE06TA07 NA04] S/N [K1HBM6RDNP002] UID [6000CCA2:554D7EE4:500A0981:00000002:00000000:00000000:00000000:00000000:00000000:00000000] to aggregate aggr0 has completed successfully
+Nov 05 15:42:53 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=1,0 volumes with a total of total=33 incoming=10 dirty buffers took 56ms with longest CP phases being CP_P2_FLUSH=33, CP_P3A_VOLINFO=17, CP_P1_CLEAN=1 on aggregate aggr0.
+Nov 05 15:42:53 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=1,0 volumes with a total of total=30 incoming=0 dirty buffers took 49ms with longest CP phases being CP_P2_FLUSH=37, CP_P3A_VOLINFO=7, CP_P4_FINISH=1 on aggregate aggr0.
+Nov 05 15:42:58 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=1,0 volumes with a total of total=45 incoming=10 dirty buffers took 42ms with longest CP phases being CP_P2_FLUSH=29, CP_P3A_VOLINFO=7, CP_P1_CLEAN=1 on aggregate aggr0.
+Nov 05 15:42:58 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=2,1 volumes with a total of total=116 incoming=35 dirty buffers took 58ms with longest CP phases being CP_P2_FLUSH=38, CP_P3A_VOLINFO=7, CP_P2V_FSINFO=1 on aggregate aggr0.
+Nov 05 15:42:58 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=2,1 volumes with a total of total=118 incoming=31 dirty buffers took 38ms with longest CP phases being CP_P2_FLUSH=23, CP_P3A_VOLINFO=7, CP_P2_FINISH=0 on aggregate aggr0.
+Nov 05 15:42:58 [localhost:wafl.transition.cp.completed:notice]: Transition CP with reason none, 00000000 for replaying=0,0 unmounting=0,0 total=2,1 volumes with a total of total=86 incoming=3 dirty buffers took 55ms with longest CP phases being CP_P2_FLUSH=41, CP_P3A_VOLINFO=7, CP_P2A_VOLINFO=1 on aggregate aggr0.
+Nov 05 15:42:58 [localhost:cf.fm.notkoverClusterDisable:error]: Failover monitor: takeover disabled (restart)
+Nov 05 15:42:58 [localhost:tar.csum.notFound:notice]: Stored checksum file does not exist, extracting local://mnt/prestage/mroot.tgz.
+Nov 05 15:42:58 [localhost:tar.csum.mismatch:notice]: Stored checksum 0 does not match calculated checksum 1585368015, extracting local://mnt/prestage/mroot.tgz.
+Nov 05 15:42:59 [localhost:cf.fsm.backupMailboxError:error]: Failover monitor: partner mailbox error detected.
+Nov 05 15:42:59 [localhost:config.noPartnerDisks:error]: No disks were detected for the partner; this node cannot perform takeover correctly.
+Nov 05 15:42:59 [localhost:callhome.dsk.config:error]: Call home for DISK CONFIGURATION ERROR
+Nov 05 15:42:59 [localhost:cf.fsm.takeoverOfPartnerDisabled:error]: Failover monitor: takeover of partner disabled (Controller Failover takeover disabled).
+Nov 05 15:42:59 [localhost:cf.fm.notkoverBadMbox:notice]: Failover monitor: uninitialized backup mailbox data detected
+Nov 05 15:43:01 [localhost:tar.csum.notFound:notice]: Stored checksum file does not exist, extracting local://mnt/prestage/pmroot.tgz.
+Nov 05 15:43:01 [localhost:tar.csum.mismatch:notice]: Stored checksum 0 does not match calculated checksum 3971829708, extracting local://mnt/prestage/pmroot.tgz.
+Nov 05 15:43:02 [localhost:kern.syslog.msg:notice]: Registry is being upgraded to improve storing of local changes.
+Nov 05 15:43:02 [localhost:kern.syslog.msg:notice]: Registry upgrade successful.
+Nov 05 15:43:02 [localhost:kern.syslog.msg:notice]: domain xing mode: off, domain xing interrupt: false
+Nov 05 15:43:02 [localhost:clam.invalid.config:error]: Local node (name=unknown, id=0) is in an invalid configuration for providing CLAM functionality. CLAM cannot determine the identity of the HA partner.
+System initialization has completed successfully.
+
+PerfMon polling is not enabled by platform
+
+Nov 05 15:43:03 [localhost:cf.fsm.partnerNotResponding:notice]: Failover monitor: partner not responding
+Nov 05 15:43:08 [localhost:extCache.enabled:notice]: WAFL external cache administratively enabled
+Nov 05 15:43:08 [localhost:extCache.rw.log.open:notice]: WAFL external cache log could not be opened: aggregate aggr0, log ec_tagstore.
+Nov 05 15:43:08 [localhost:extCache.rw.canceled:notice]: WAFL external cache reconstruct was canceled.
+Nov 05 15:43:09 [localhost:extCache.rw.terminated:notice]: WAFL external cache warming process terminated.
+Boot argument NfsRdmaOk not specified.  Default (set) is in effect.
+Boot argument NfsIpOk not specified.  Default (set) is in effect.
+FWU 2nd trigger point
+FWU has no post firmware update action registered.
+bootarg.mroot.mount_fail_count="0"
+wrote key file "/tmp/rndc.key"
+Nov 05 15:44:00 [localhost:monitor.globalStatus.critical:EMERGENCY]: Controller failover partner unknown. Controller failover not possible.
+
+
+Welcome to the cluster setup wizard.
+
+You can enter the following commands at any time:
+  "help" or "?" - if you want to have a question clarified,
+  "back" - if you want to change previously answered questions, and
+  "exit" or "quit" - if you want to quit the cluster setup wizard.
+     Any changes you made before quitting will be saved.
+
+You can return to cluster setup at any time by typing "cluster setup".
+To accept a default or omit a question, do not enter a value.
+
+This system will send event messages and periodic reports to NetApp Technical
+Support. To disable this feature, enter 
+autosupport modify -support disable
+within 24 hours.
+
+Enabling AutoSupport can significantly speed problem determination
+and resolution, should a problem occur on your system.
+For further information on AutoSupport, see:
+http://support.netapp.com/autosupport/
+
+Type yes to confirm and continue {yes}: ### I PRESSED Ctrl-C to leave wizard
+Exiting the cluster setup wizard. Any changes you made have been saved.
+
+
+The cluster administrator's account (username "admin") password is set to the system default.
+
+
+Warning: You have exited the cluster setup wizard before completing all
+of the tasks. The cluster is not configured. You can complete cluster setup by typing
+"cluster setup" in the command line interface.
+
+
+
+
+Thu Nov  5 15:44:48 UTC 2026
+login: admin
+******************************************************
+* This is a serial console session. Output from this *
+* session is mirrored on the SP console session.     *
+******************************************************
+::> ro 0
+  (rows)
+
+::> network interface show
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            clus1        up/up    169.254.222.68/16  localhost     e0a     true
+            clus2        up/up    169.254.68.130/16  localhost     e0b     true
+Default
+            mgmt_auto    up/up    169.254.60.200/16  localhost     e0M     true
+3 entries were displayed.
+
+::> security login password
+
+Enter your current password: ### empty here just hit enter
+Enter a new password: 
+Enter it again: 
+
+::> cluster create -clustername pdtest-f2720-1 -node-names pdtest-f2720-1-01,pdtest-f2720-1-02 -cluster-ips 169.254.222.68,169.254.131.102
+.                                                                              Starting replication service                                                   Starting replication service .                                                 Starting replication service ..                                                Starting replication service ...                                               Starting replication service ....                                              Creating cluster                                                               Creating cluster .                                                             Creating cluster ..                                                            Creating cluster ...                                                           Creating cluster ....                                                          Creating cluster .....                                                         System start up                                                                System start up .                                                              System start up ..                                                             System start up ...                                                            System start up ....                                                           System start up .....                                                          Updating volume location database                                              Updating LIF Manager                                                           Updating LIF Manager .                                                         Vserver Management                                                             Vserver Management .                                                           Vserver Management ..                                                          Vserver Management ...                                                         Vserver Management ....                                                        Vserver Management .....                                                       Vserver Management ......                                                      Vserver Management .......                                                     Vserver Management ........                                                    Vserver Management .........                                                   Vserver Management ..........                                                  Starting cluster support services                                              Starting cluster support services .                                            Starting cluster support services ..                                           Starting cluster support services ...                                          Starting cluster support services ....                                         Starting cluster support services .....                                        Starting cluster support services ......                                       Starting cluster support services .......                                      Starting cluster support services ........                                     Starting cluster support services .........                                    Starting cluster support services ..........                                   Starting cluster support services ...........                                  Starting cluster support services ............                                 Starting cluster support services .............                                Starting cluster support services ..............                               Starting cluster support services ...............                              Starting cluster support services ................                             Starting cluster support services .................                            Starting cluster support services ..................                           Starting cluster support services ...................                          Starting cluster support services ....................                         Starting cluster support services .....................                        Starting cluster support services ......................                       Starting cluster support services .......................                      Starting cluster support services ........................                     Starting cluster support services .........................                    Starting cluster support services ..........................                   Starting cluster support services                                              Starting cluster support services .                                            Starting cluster support services ..                                           Starting cluster support services ...                                          Starting cluster support services ....                                         Starting cluster support services .....                                        Starting cluster support services ......                                       Starting cluster support services .......                                      Starting cluster support services ........                                     Starting cluster support services .........                                    Starting cluster support services ..........                                   Starting cluster support services ...........                                  Starting cluster support services ............                                 Starting cluster support services .............                                Starting cluster support services ..............                               Starting cluster support services ...............                              Starting cluster support services ................                             Starting cluster support services .................                            Starting cluster support services ..................                           Starting cluster support services ...................                          Starting cluster support services ....................                         Starting cluster support services .....................                        Starting cluster support services ......................                       Starting cluster support services .......................                      Starting cluster support services ........................                     Starting cluster support services .........................                    Starting cluster support services ..........................                   Starting cluster support services                                              Starting cluster support services .                                            Starting cluster support services ..                                           Starting cluster support services ...                                          Starting cluster support services ....                                         Starting cluster support services .....                                        Starting cluster support services ......                                       
+
+Cluster pdtest-f2720-1 has been created.
+
+Additional nodes are being added to the cluster. Use the 'cluster add-node-status' command to see the progress of these operations.
+pdtest-f2720-1::> cluster add-node-status
+
+
+Node Name        Cluster IP          Status              Error Reason
+---------------- ------------------- ------------------- --------------------------
+pdtest-f2720-1-02 169.254.131.102    post-cluster-setup
+pdtest-f2720-1-01 169.254.222.68     success
+2 entries were displayed.
+
+pdtest-f2720-1::> Nov 05 15:58:00 [pdtest-f2720-1-01:monitor.globalStatus.critical:EMERGENCY]: Controller failover of pdtest-f2720-1-02 is not possible: Controller Failover takeover disabled. 
+cluster add-node-status
+
+
+Node Name        Cluster IP          Status              Error Reason
+---------------- ------------------- ------------------- --------------------------
+pdtest-f2720-1-02 169.254.131.102    success
+pdtest-f2720-1-01 169.254.222.68     success
+2 entries were displayed.
+
+pdtest-f2720-1::> storage failover modify -node * -enabled true
+
+Notice: HA is configured in management.
+2 entries were modified.
+
+pdtest-f2720-1::> timezone -timezone Europe/Moscow
+1 entry modified
+
+pdtest-f2720-1::> network interface create -vserver pdtest-f2720-1 -lif pdtest-f2720-1-01_mgmt -address 10.10.10.66 -netmask 255.255.255.0 -home-node pdtest-f2720-1-01 -service-policy default-management  -home-port e0M -status-admin up -failover-policy local-only -firewall-policy mgmt
+
+Warning: The configured failover-group has no valid failover targets for the
+         LIF's failover-policy. To view the failover targets for a LIF, use the
+         "network interface show -failover" command.
+
+pdtest-f2720-1::> network interface create -vserver pdtest-f2720-1 -lif pdtest-f2720-1-02_mgmt -address 10.10.10.67 -netmask 255.255.255.0 -home-node pdtest-f2720-1-02 -service-policy default-management  -home-port e0M -status-admin up -failover-policy local-only -firewall-policy mgmt
+
+Warning: The configured failover-group has no valid failover targets for the
+         LIF's failover-policy. To view the failover targets for a LIF, use the
+         "network interface show -failover" command.
+
+pdtest-f2720-1::> network interface create -vserver pdtest-f2720-1 -lif cluster_mgmt -address 10.10.10.68 -netmask 255.255.255.0 -home-node pdtest-f2720-1-01 -service-policy default-management  -home-port e0M -status-admin up -failover-policy broadcast-domain-wide  -firewall-policy mgmt -auto-revert true
+
+pdtest-f2720-1::> system service-processor network modify -node pdtest-f2720-1-01 -address-family IPv4 -enable true -ip-address 10.10.10.64 -netmask 255.255.255.0 -gateway 10.10.10.1
+
+pdtest-f2720-1::> system service-processor network modify -node pdtest-f2720-1-02 -address-family IPv4 -enable true -ip-address 10.10.10.65 -netmask 255.255.255.0 -gateway 10.10.10.1
+
+pdtest-f2720-1::> network route create -vserver pdtest-f2720-1 -destination 0.0.0.0/0 -gateway 10.10.10.1
+
+pdtest-f2720-1::> network interface show
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            pdtest-f2720-1-01_clus1 up/up 169.254.222.68/16 pdtest-f2720-1-01 e0a true
+            pdtest-f2720-1-01_clus2 up/up 169.254.68.130/16 pdtest-f2720-1-01 e0b true
+            pdtest-f2720-1-02_clus1 up/up 169.254.131.102/16 pdtest-f2720-1-02 e0a true
+            pdtest-f2720-1-02_clus2 up/up 169.254.233.148/16 pdtest-f2720-1-02 e0b true
+pdtest-f2720-1
+            cluster_mgmt up/up    10.10.10.68/24     pdtest-f2720-1-01 e0M true
+            pdtest-f2720-1-01_mgmt up/up 10.10.10.66/24 pdtest-f2720-1-01 e0M true
+            pdtest-f2720-1-02_mgmt up/up 10.10.10.67/24 pdtest-f2720-1-02 e0M true
+7 entries were displayed.
+
+pdtest-f2720-1::> system service-processor network show
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+pdtest-f2720-1-01 online     IPv4      up          10.10.10.64
+
+                                 DHCP: none
+                          MAC Address: d0:39:ea:9d:8c:10
+                      Network Gateway: 10.10.10.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+
+
+pdtest-f2720-1-01 online     IPv6      disabled    -
+
+                                 DHCP: none
+                          MAC Address: d0:39:ea:9d:8c:10
+                      Network Gateway: -
+             Network Mask (IPv4 only): -
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: not-setup
+
+
+pdtest-f2720-1-02 online     IPv4      up          10.10.10.65
+
+                                 DHCP: none
+                          MAC Address: d0:39:ea:9d:8c:5f
+                      Network Gateway: 10.10.10.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+
+
+pdtest-f2720-1-02 online     IPv6      disabled    -
+
+                                 DHCP: none
+                          MAC Address: d0:39:ea:9d:8c:5f
+                      Network Gateway: -
+             Network Mask (IPv4 only): -
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: not-setup
+
+
+4 entries were displayed.
+
+pdtest-f2720-1::>
