@@ -83,3 +83,293 @@
 ## Сбой 5: Обрыв RDP / краш процесса посреди разрушительной операции
 - **Детекция:** При старте бинарник видит флаг `in_flight=true` в state.json.
 - **Предохранитель:** Разрушительная команда НИКОГДА не повторяется вслепую. FSM делает read-only проверку (vol status, cluster show). Если операция прошла — помечает done, если нет — требует подтверждения оператора.
+
+---
+
+# 3. Техническая спецификация и контракты реализации
+
+## 3.1. Схема входного config.yaml
+
+```go
+// Config — корневая структура конфигурации, загружается из config.yaml при старте.
+type Config struct {
+	Cluster   ClusterConfig `yaml:"cluster"`
+	Nodes     NodesConfig   `yaml:"nodes"`
+	HTTP      HTTPConfig    `yaml:"http"`
+	Upgrade   UpgradeConfig `yaml:"upgrade"`
+}
+
+// ClusterConfig — параметры создаваемого кластера.
+type ClusterConfig struct {
+	Name        string `yaml:"name"`         // имя кластера, напр. "cluster1"
+	MgmtIP      string `yaml:"mgmt_ip"`      // cluster management IP
+	MgmtMask    string `yaml:"mgmt_mask"`    // напр. "255.255.255.0"
+	MgmtGateway string `yaml:"mgmt_gateway"`
+}
+
+// NodesConfig — параметры обеих нод HA-пары.
+type NodesConfig struct {
+	NodeA NodeConfig `yaml:"node_a"`
+	NodeB NodeConfig `yaml:"node_b"`
+}
+
+// NodeConfig — параметры одной ноды: COM-порт, e0M, Service Processor.
+type NodeConfig struct {
+	Name     string         `yaml:"name"`      // напр. "node1"
+	Serial   SerialConfig   `yaml:"serial"`
+	E0M      NetworkConfig  `yaml:"e0m"`
+	SP       SPConfig       `yaml:"sp"`
+}
+
+// SerialConfig — настройки COM-порта для данной ноды.
+type SerialConfig struct {
+	Port     string `yaml:"port"`      // напр. "COM3"
+	BaudRate int    `yaml:"baud_rate"` // дефолт 9600 (Loader/Boot Menu), 115200 (console после загрузки)
+	DataBits int    `yaml:"data_bits"` // дефолт 8
+	Parity   string `yaml:"parity"`    // "N" | "E" | "O", дефолт "N"
+	StopBits int    `yaml:"stop_bits"` // дефолт 1
+}
+
+// NetworkConfig — IP-параметры интерфейса (e0M).
+type NetworkConfig struct {
+	IP      string `yaml:"ip"`
+	Mask    string `yaml:"mask"`
+	Gateway string `yaml:"gateway"`
+}
+
+// SPConfig — параметры Service Processor (SP network modify).
+type SPConfig struct {
+	IP      string `yaml:"ip"`
+	Mask    string `yaml:"mask"`
+	Gateway string `yaml:"gateway"`
+}
+
+// HTTPConfig — встроенный HTTP-сервер раздачи образов ONTAP.
+type HTTPConfig struct {
+	ListenAddr string `yaml:"listen_addr"` // напр. "0.0.0.0:8080"
+	ImagesDir  string `yaml:"images_dir"`  // напр. "./images"
+}
+
+// UpgradeConfig — целевая версия ONTAP и имя файла образа.
+type UpgradeConfig struct {
+	TargetVersion string `yaml:"target_version"` // напр. "9.13.1"
+	ImageFile     string `yaml:"image_file"`      // имя файла в ImagesDir, отдаётся по HTTP
+}
+```
+
+Дефолты, применяемые при отсутствии значения в YAML:
+- `baud_rate`: `9600` для сессии Loader/Boot Menu, `115200` после входа в ONTAP CLI (переключение baud rate — явный шаг FSM, не настраивается пользователем).
+- `data_bits`: `8`, `parity`: `"N"`, `stop_bits`: `1`.
+- `http.listen_addr`: `"0.0.0.0:8080"`.
+
+## 3.2. Схема состояния state.json
+
+```json
+{
+  "version": 1,
+  "nodes": {
+    "A": {
+      "current_step": "boot_menu_option_7",
+      "last_prompt": "LOADER-A>",
+      "in_flight": false,
+      "failed_disks": ["0a.14.7"]
+    },
+    "B": {
+      "current_step": "awaiting_ontap_boot",
+      "last_prompt": "::>",
+      "in_flight": false,
+      "failed_disks": []
+    }
+  },
+  "barriers": {
+    "firmware_option_7": {
+      "name": "serial_barrier",
+      "node_a_done": true,
+      "node_b_done": false
+    },
+    "wipeconfig_9b": {
+      "name": "serial_barrier",
+      "node_a_done": false,
+      "node_b_done": false
+    }
+  },
+  "cluster": {
+    "create_issued": false,
+    "add_node_status_a": "pending",
+    "add_node_status_b": "pending"
+  }
+}
+```
+
+Соответствующие Go-структуры:
+
+```go
+// State — корневая структура файла state.json.
+type State struct {
+	Version  int                 `json:"version"`
+	Nodes    map[string]NodeState `json:"nodes"`   // ключи: "A", "B"
+	Barriers map[string]Barrier  `json:"barriers"` // ключи: "firmware_option_7", "wipeconfig_9b"
+	Cluster  ClusterState        `json:"cluster"`
+}
+
+// NodeState — прогресс конкретной ноды.
+type NodeState struct {
+	CurrentStep string   `json:"current_step"` // напр. "boot_menu_option_7", "awaiting_ontap_boot"
+	LastPrompt  string   `json:"last_prompt"`  // последний распознанный промпт консоли
+	InFlight    bool     `json:"in_flight"`    // true во время выполнения разрушительной команды
+	FailedDisks []string `json:"failed_disks"` // напр. ["0a.14.7"]
+}
+
+// Barrier — точка синхронизации между нодами HA-пары.
+type Barrier struct {
+	Name       string `json:"name"` // "serial_barrier"
+	NodeADone  bool   `json:"node_a_done"`
+	NodeBDone  bool   `json:"node_b_done"`
+}
+
+// ClusterState — прогресс создания кластера и присоединения узлов.
+type ClusterState struct {
+	CreateIssued     bool   `json:"create_issued"`
+	AddNodeStatusA   string `json:"add_node_status_a"` // "pending" | "post-cluster-setup" | "success"
+	AddNodeStatusB   string `json:"add_node_status_b"`
+}
+```
+
+Запись state.json выполняется атомарно: сериализация во временный файл в той же директории, `fsync`, затем `os.Rename` на целевой путь.
+
+## 3.3. Таблица регулярных выражений (Expect Engine)
+
+| Категория | Назначение | Regex |
+|---|---|---|
+| Промпт | LOADER | `^LOADER-[AB]>\s*$` |
+| Промпт | Boot Menu, выбор пункта | `Selection \(1-11\)\?\s*$` |
+| Промпт | ONTAP CLI (node shell) | `\S+::>\s*$` |
+| Промпт | ONTAP CLI (без имени узла) | `::>\s*$` |
+| Промпт | Выход из cluster setup wizard | `Exiting the cluster setup wizard\.` |
+| Событие | Запрет Normal Boot после wipeconfig | `Normal Boot is prohibited\.` |
+| Событие | Смена boot-девайса | `The boot device has changed\.` |
+| Событие | Сбойный диск обнаружен | `Failed disk (\S+) detected` |
+| Событие | Диск пропущен как failed | `The disk (\S+) was skipped because it reported the status disk failed` |
+| Вопрос визарда | Подтверждение 9a на всех нодах | `Has option \(9a\) been completed on all the nodes \(yes/no\)\?\s*$` |
+| Вопрос визарда | Общий yes/no | `\(yes/no\)\?\s*$` |
+| Вопрос визарда | Общий y/n | `\(y/n\)\?\s*$` |
+| Статус ноды в кластере | Промежуточный этап | `post-cluster-setup` |
+| Статус ноды в кластере | Успешное присоединение | `success` |
+
+Все regex компилируются один раз при старте через `regexp.MustCompile` и применяются построчно к буферу вывода COM-порта.
+
+## 3.4. Алгоритм обхода графа прошивок (DAG)
+
+**Нормализация версии.**
+Версия из `cluster image show` или из конфигурации приходит в формате `9.13.1P6` или `9.8P1`. Нормализация отсекает суффикс патча `Pxx`, оставляя базовую версию `major.minor[.patch]`:
+
+```go
+// normalizeVersion отсекает суффикс вида "P6" и возвращает базовую версию ONTAP.
+// "9.13.1P6" -> "9.13.1"; "9.8P1" -> "9.8".
+func normalizeVersion(raw string) string {
+	re := regexp.MustCompile(`^(\d+(?:\.\d+)*)P\d+$`)
+	if m := re.FindStringSubmatch(raw); m != nil {
+		return m[1]
+	}
+	return raw
+}
+```
+
+**Построение графа.** Файл `Upgrade-path.txt` парсится в ориентированный граф `from -> to`, где каждая строка задаёт ребро максимально допустимого прямого перехода. Строка `9.15.1 any higher` трактуется как ребро в условный узел "без верхнего ограничения" (терминальная версия графа, равная целевой версии при поиске пути, если текущая версия >= 9.15.1).
+
+**Поиск пути.** Используется BFS от нормализованной текущей версии до нормализованной целевой версии, так как граф — DAG с единичным весом ребра (каждый переход — одна операция обновления):
+
+```go
+// FindUpgradePath возвращает последовательность промежуточных версий
+// от текущей до целевой включительно, используя ребра edges (from -> []to).
+// Возвращает ошибку, если путь не существует.
+func FindUpgradePath(edges map[string][]string, from, to string) ([]string, error) {
+	from = normalizeVersion(from)
+	to = normalizeVersion(to)
+
+	type queueItem struct {
+		version string
+		path    []string
+	}
+	visited := map[string]bool{from: true}
+	queue := []queueItem{{version: from, path: []string{from}}}
+
+	for len(queue) > 0 {
+		cur := queue[0]
+		queue = queue[1:]
+		if cur.version == to {
+			return cur.path, nil
+		}
+		for _, next := range edges[cur.version] {
+			if visited[next] {
+				continue
+			}
+			visited[next] = true
+			queue = append(queue, queueItem{version: next, path: append(append([]string{}, cur.path...), next)})
+		}
+	}
+	return nil, fmt.Errorf("upgrade path not found: %s -> %s", from, to)
+}
+```
+
+**Валидация потолка модели.** Перед выполнением найденного пути каждый промежуточный шаг проверяется против `Upgrade-cap.txt`: версия шага не должна превышать `latest supported ontap version` для модели контроллера, указанной в конфигурации (`Controller-A.txt` / `Controller-B.txt`). Если промежуточная версия пути превышает потолок модели — путь считается невалидным, FSM останавливается с ошибкой `model upgrade cap exceeded` до вмешательства оператора.
+
+## 3.5. Структура пакетов Go
+
+```
+.
+├── cmd/
+│   └── provisioner/
+│       └── main.go              # точка входа, разбор флагов, загрузка config.yaml
+├── internal/
+│   ├── serial/
+│   │   ├── session.go           # реализация ConsoleSession поверх COM-порта
+│   │   └── session_test.go
+│   ├── expect/
+│   │   ├── patterns.go          # таблица regex из 3.3
+│   │   └── engine.go            # ожидание промптов/событий, таймауты
+│   ├── fsm/
+│   │   ├── state.go             # структуры State/NodeState/Barrier (3.2)
+│   │   ├── store.go             # атомарная чтение/запись state.json
+│   │   ├── node_states.go       # реализации FSMState для каждого шага ноды
+│   │   └── barrier.go           # логика serial_barrier
+│   ├── httpd/
+│   │   └── server.go            # встроенный net/http для раздачи images_dir
+│   └── upgrade/
+│       ├── graph.go             # парсинг Upgrade-path.txt, FindUpgradePath (3.4)
+│       ├── cap.go                # парсинг Upgrade-cap.txt, валидация потолка модели
+│       └── version.go            # normalizeVersion и сопутствующие хелперы
+├── config.yaml
+├── images/
+└── go.mod
+```
+
+**Интерфейс ConsoleSession** (пакет `internal/serial`, используется `internal/expect` и `internal/fsm`):
+
+```go
+// ConsoleSession — абстракция над физическим или тестовым COM-портом.
+type ConsoleSession interface {
+	// Write отправляет данные (команду, ответ на вопрос визарда) в консоль.
+	Write(data []byte) (int, error)
+	// ReadUntil блокируется до совпадения вывода с одним из regex из patterns
+	// либо до истечения timeout, возвращает совпавший текст и индекс паттерна.
+	ReadUntil(patterns []*regexp.Regexp, timeout time.Duration) (matched string, patternIdx int, err error)
+	// Close закрывает COM-порт.
+	Close() error
+}
+```
+
+**Интерфейс FSMState** (пакет `internal/fsm`, по одной реализации на шаг конечного автомата, напр. `LoaderState`, `BootMenuOption7State`, `WipeconfigState`):
+
+```go
+// FSMState — один шаг конечного автомата прошивки ноды.
+type FSMState interface {
+	// Name возвращает идентификатор шага, записываемый в NodeState.CurrentStep.
+	Name() string
+	// Run выполняет шаг: отправляет команды через ConsoleSession,
+	// ожидает промпты/события, обновляет st (NodeState) и возвращает следующий шаг.
+	// Перед разрушительной операцией обязан выставить st.InFlight = true
+	// и сохранить state.json до отправки команды.
+	Run(ctx context.Context, session serial.ConsoleSession, st *NodeState) (next FSMState, err error)
+}
+```
